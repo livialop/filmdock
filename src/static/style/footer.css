@@ -1,0 +1,58 @@
+footer {
+    background-color: #2B2B2B;
+    width: 100%;
+    height: 15em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-top: 3em;
+    
+    h2 {
+        color: #DB4A2B;
+        margin-bottom: 0.3em;
+    }
+
+    a {
+        color: #ece5d7;
+        display: block;
+        margin: 0.1em;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    a:hover {
+            color: #DB4A2B;
+        }
+}
+
+.filmdock {
+    width: 20%;
+
+    p {
+        color: #ece5d7;
+    }
+
+}
+
+.explore {
+    width: 5%;
+}
+
+.about {
+    width: 5%;
+}
+
+.connect {
+    width: 10%;
+
+    .fa-github {
+        font-size: 28px;
+        color: #ece5d7;
+        transition: color 0.2s ease;
+    }
+
+    .fa-github:hover {
+        color: #DB4A2B;
+    }
+}
