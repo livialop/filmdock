@@ -6,4 +6,4 @@
 - Configuração inicial do banco SQLite (tabela de usuários)
 - Fazer o design das telas no Figma.
 - Fazer a logo do FilmDock.
-- Escolher a palheta de cores do sistema.
+- Escolher a paleta de cores do sistema.
