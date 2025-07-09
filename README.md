@@ -27,4 +27,15 @@ pip install -r requirements.txt
         <li><a href='docs/orgsemanal.md'>Organização Semanal</a></li>
         <li><a href='docs/encaminhamentos.md'>Encaminhamentos</a></li>
     </ul>
+</details>  
+  
+<details>
+  <summary>Aplicação</summary>
+    <ul>
+        <li><a href='src/app.py'>Código main da aplicação</a></li>
+        <li><a href='src/insert.py'>Insert no banco de dados</a></li>
+        <li><a href='src/schema.sql'>Schema</a></li>
+        <li><a href='src/templates/'>Templates</a></li>
+    </ul>
 </details>
+
