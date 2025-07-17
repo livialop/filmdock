@@ -21,6 +21,7 @@ class User(UserMixin):
         conexao = get_conexion()
         sql = "SELECT * FROM users WHERE email = ?"
         resultado = conexao.execute(sql, (user_id,)).fetchone()
-        user = User(email=resultado['email'], password_hash=resultado['password_hash'])
-        user.id = resultado['email']
-        return user
+        if resultado:
+            user = User(email=resultado['email'], password_hash=resultado['password_hash'])
+            user.id = resultado['email']
+            return user

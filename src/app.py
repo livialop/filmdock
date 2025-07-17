@@ -72,3 +72,37 @@ def register():
 
 
 # Rota de Login
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+
+        conn = get_conexion()
+        sql = "SELECT * FROM users WHERE email = ?"
+        result = conn.execute(sql, (email,)).fetchone()
+
+        if not result:
+            flash('Usuário não logado', category='error')
+            return redirect(url_for('index'))
+        
+        elif result:
+            sql_get_password = "SELECT * FROM users WHERE email = ?"
+            result_password = conn.execute(sql_get_password, (email,)).fetchone()
+
+            pwrdcheck = check_password_hash(pwhash=result_password[3], password=password)
+            
+            # if result_password[3] != check_password_hash(result_password[3], password):
+            if not pwrdcheck:
+                flash('Senha incorreta', category='error')
+                return redirect(url_for('login'))
+            
+            else:
+                user = User(email=email, password_hash=result_password[3])
+                user.id = email
+                login_user(user)
+
+                flash('Você está logado!', category='success')
+                return redirect(url_for('index')) # Mudar a rota posteriormente
+    
+    return render_template('login.html')

@@ -2,7 +2,8 @@
 
 {% block head %}
     {{ super() }}
-    {% block title %} Homepage {% endblock title %}
+    {% block title %} Login {% endblock title %}
+
 {% endblock head %}
 
 {% block content %}
@@ -17,8 +18,16 @@
         {% endif %}
     {% endwith %}
 
-    <button><a href="{{url_for('register')}}">Register</a></button>
-    <button><a href="{{url_for('login')}}">login</a></button>
+    <form action="{{url_for('login')}}" method="post">
+        <label for="email">Email:</label>
+        <input type="text" placeholder="user@exemplo.com" name="email">
+
+        <label for="password">Password:</label>
+        <input type="password" placeholder="Password" name="password">
+
+        <button type="submit">Submit</button>
+    </form>
 
     {% include "footer.html" %}
+
 {% endblock content %}
