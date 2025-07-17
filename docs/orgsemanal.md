@@ -8,12 +8,12 @@ Documento criado apenas para manter controle das entregas semanais.
 * Configuração inicial do banco SQLite (tabela de usuários) | <p style='color: green; display: inline;'>OK</p>
 ## Semana 2 (11/07–17/07)
 * Implementar autenticação:
-    * Página de registro
-    * Página de login
-    * Senha com hash seguro
-    * Sessão ou Flask-Login para manter usuário autenticado
+    * Página de registro | <p style='color: green; display: inline;'>OK</p>
+    * Página de login | <p style='color: green; display: inline;'>OK</p>
+    * Senha com hash seguro | <p style='color: green; display: inline;'>OK</p>
+    * Sessão ou Flask-Login para manter usuário autenticado | <p style='color: green; display: inline;'>OK</p>
 * Logout funcional
-* Templates com extends/includes para base e navbar
+* Templates com extends/includes para base e navbar | <p style='color: green; display: inline;'>OK</p>
 ## Semana 3 (18/07–24/07)
 * Implementar CRUD do recurso escolhido:
     * Criar
