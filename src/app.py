@@ -17,7 +17,7 @@ def load_user(user_id):
     '''Retorna o email do usuário, que é definido como chave única'''
     return User.get(user_id)
 
-
+# start_database('../schema.sql') # Falta implementar isso depois
 
 # Primeira rota. Tentando visualizar o footer e posteriormente a header
 @app.route('/')
@@ -106,3 +106,53 @@ def login():
                 return redirect(url_for('index')) # Mudar a rota posteriormente
     
     return render_template('login.html')
+
+@app.route('/films', methods=['GET', 'POST'])
+@login_required # Apenas usuários logados podem acessar essa rota
+def films():
+    '''Páginas para o usuário ter a opção de logar um filme e visualizar aqueles que já foram logados.'''
+
+    # Se o método for GET
+    return render_template('films.html')
+
+
+@app.route('/add_films', methods=['GET','POST'])
+@login_required # Apenas usuários logados podem acessar essa rota
+def add_films():
+    '''Rota onde o usuário irá adicionar um filme'''
+    if request.method == 'POST':
+        film_title = request.form.get('title')
+        film_year = request.form.get('year')
+        film_review = request.form.get('review')
+        # Making sure that the rating is a integer between 1-5
+        try:
+            film_rating = int(request.form.get('rating'))
+            if film_rating < 1 or film_rating > 5:
+                raise ValueError('Avaliação deve ser entre 1 e 5.')
+        except (ValueError, TypeError):
+            flash('A avaliação deve ser um número inteiro entre 1 e 5.', category='error')
+            return redirect(url_for('add_films'))
+
+        # Checando campos obrigatórios
+        if not film_title or not film_rating:
+            flash('O título do filme e sua avaliação são obrigatórios.', category='error')
+            return redirect(url_for('add_films'))
+        
+        try:
+            conn = get_conexion()
+            sql_insert_film = "INSERT INTO user_films (user_email, title, year, rating, review) VALUES (?, ?, ?, ?, ?)"
+
+            conn.execute(sql_insert_film, (current_user.id, film_title, film_year, film_rating, film_review))
+            conn.commit()
+
+            flash('Filme adicionado!', category='success')
+            return redirect(url_for('films'))
+        
+        except Exception as e:
+            conn.rollback() # Se der errado, o banco de dados volta para um ponto anterior
+            flash('Erro ao adicionar o filme.', category='error')
+            return redirect(url_for('add_films'))
+    
+
+    # Se o método for GET
+    return render_template('add_films.html')

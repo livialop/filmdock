@@ -2,6 +2,7 @@ from flask import *
 from flask_login import *
 
 import sqlite3
+import subprocess
 
 def get_conexion():
     '''Função para realizar a conexão com o banco de dados'''
@@ -10,7 +11,21 @@ def get_conexion():
     return conn 
 
 
+def start_database(file):
+    '''Função para iniciar o banco de dados, podendo ser utilizada direto na aplicação.
+    Isso diminui a repetição de estar sempre procurando qual arquivo executar quando alguma
+    alteração é feita no banco de dados.'''
+    try:
+        result = subprocess.run(['python', file], capture_output=True, text=True, check=True)
+        print(result.stdout) # Imprime a saída do arquivo executado
+    
+    except subprocess.CalledProcessError as e:
+        print(f"Erro ao executar o arquivo: {e}")
+        print(e.stderr) # Imprime o erro, se houver
+
+
 class User(UserMixin):
+    '''Classe para definir o usuário na aplicação'''
     def __init__(self, email, password_hash) -> None:
         self.email = email
         self.password_hash = password_hash

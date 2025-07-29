@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head %}
+    {{ super() }}
+    {% block title %} Filmdock {% endblock title %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/add_films.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock head %}
+
+{% block content %}
+
+    <form action="url_for(add_films)" method="post">
+        <label for="title">Title:</label>
+        <input type="text" placeholder="Ex.: Barbie" name="film_title">
+
+        <label for="year">Year:</label>
+        <input type="text" placeholder="Year" name="film_year" min="1878" max="2025">
+
+        <label for="rating">Rating:</label>
+        <input type="number" placeholder="1-5" name="film_rating" min="1" max="5" step="1">
+
+        <label for="review">Review:</label>
+        <input type="text" placeholder="Write your review." name="film_review">
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+{% endblock content %}
