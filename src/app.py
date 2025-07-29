@@ -17,7 +17,9 @@ def load_user(user_id):
     '''Retorna o email do usuário, que é definido como chave única'''
     return User.get(user_id)
 
+
 # start_database('../schema.sql') # Falta implementar isso depois
+
 
 # Primeira rota. Tentando visualizar o footer e posteriormente a header
 @app.route('/')
@@ -37,7 +39,7 @@ def register():
         email = request.form['email']
 
         # Estabelecendo a conexão. Função da pasta utils, arquivo func.py
-        conn = get_conexion()
+        conn = get_connection()
 
         # Verificando se o user existe no database a partir de seu identificador, o email.
         sql = "SELECT * FROM users WHERE email = ?"
@@ -60,6 +62,9 @@ def register():
             user.id = email
 
             login_user(user)
+            flash('Cadastro realizado com sucesso!', category='success')
+
+            close_connection()  # Fechando a conexão com o banco de dados
 
             return redirect(url_for('index'))
         
@@ -78,7 +83,7 @@ def login():
         email = request.form['email']
         password = request.form['password']
 
-        conn = get_conexion()
+        conn = get_connection()
         sql = "SELECT * FROM users WHERE email = ?"
         result = conn.execute(sql, (email,)).fetchone()
 
@@ -104,7 +109,10 @@ def login():
 
                 flash('Você está logado!', category='success')
                 return redirect(url_for('index')) # Mudar a rota posteriormente
-    
+            
+        close_connection()  # Fechando a conexão com o banco de dados
+
+    # Se o método for GET
     return render_template('login.html')
 
 @app.route('/films', methods=['GET', 'POST'])
@@ -139,13 +147,14 @@ def add_films():
             return redirect(url_for('add_films'))
         
         try:
-            conn = get_conexion()
+            conn = get_connection()
             sql_insert_film = "INSERT INTO user_films (user_email, title, year, rating, review) VALUES (?, ?, ?, ?, ?)"
 
             conn.execute(sql_insert_film, (current_user.id, film_title, film_year, film_rating, film_review))
             conn.commit()
 
             flash('Filme adicionado!', category='success')
+            close_connection()  # Fechando a conexão com o banco de dados
             return redirect(url_for('films'))
         
         except Exception as e:

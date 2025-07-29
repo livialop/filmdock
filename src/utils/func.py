@@ -4,17 +4,24 @@ from flask_login import *
 import sqlite3
 import subprocess
 
-def get_conexion():
+def get_connection():
     '''Função para realizar a conexão com o banco de dados'''
     conn = sqlite3.connect('banco.db')
     conn.row_factory = sqlite3.Row
     return conn 
 
 
+def close_connection():
+    '''Função para fechar a conexão com o banco de dados'''
+    conn = get_connection()
+    conn.close()
+
+
 def start_database(file):
     '''Função para iniciar o banco de dados, podendo ser utilizada direto na aplicação.
     Isso diminui a repetição de estar sempre procurando qual arquivo executar quando alguma
     alteração é feita no banco de dados.'''
+    # A implementação está feita de forma incorreta, falta tratar os erros e verificar rota do arquivo.
     try:
         result = subprocess.run(['python', file], capture_output=True, text=True, check=True)
         print(result.stdout) # Imprime a saída do arquivo executado
@@ -33,7 +40,7 @@ class User(UserMixin):
     @classmethod
     def get(cls, user_id):
         '''user_id: Email do usuário como chave única'''
-        conexao = get_conexion()
+        conexao = get_connection()
         sql = "SELECT * FROM users WHERE email = ?"
         resultado = conexao.execute(sql, (user_id,)).fetchone()
         if resultado:
