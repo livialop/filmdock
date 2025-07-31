@@ -10,7 +10,22 @@
 
     <header>
 
+        <div class="logo">
+            <img src="{{ url_for('static', filename='assets/logo_filmdock.svg') }}" alt="Logo of FilmDock" href="{{ url_for('index') }}">
+        </div>
         
+        <div class="title">
+            <h2>FilmDock</h2>
+            <p>Your gateway to the world of cinema</p>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}"><button>Home</button></a></li>
+                <li><a href="{{ url_for('register') }}"><button>Register</button></a></li>
+                <li><a href="{{ url_for('login') }}"><button>Login</button></a></li>
+            </ul>
+        </nav>
     
     </header>
 

@@ -2,17 +2,37 @@
 
 {% block head %}
     {{ super() }}
-    {% block title %} Homepage {% endblock title %}
+    <!-- {% block title %} Homepage {% endblock title %} -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style/index.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock head %}
 
 {% block content %}
+    {% include "header.html" %}
 
-    {% include "flash.html" %}
+    <div class="banner">
+        <img src="static/assets/filmdock.png" alt="">
+        <a href="{{ url_for('register') }}"><button>New Here?</button></a>
+    </div>
 
-    <button><a href="{{url_for('register')}}">Register</a></button>
-    <button><a href="{{url_for('login')}}">login</a></button>
+    <div class="whatisfilmdock">
+        <h1>What is FilmDock?</h1>
+        <p>FilmDock is a platform for film enthusiasts to log, rate and review films.</p>
+        <p>Heavily inspired by Letterboxd</p>
+    </div>
+
+    <div class="whoami">
+        <h1>Who am I?</h1>
+        <p>Hi! My name is Livia Lopes and this is a personal project to test my habilities in front and backend.</p>
+        <p>I've always wanted to do a website and I also happen to love films, so I made this :D!</p>
+        <p>I have a lot to improve and a lot to learn, but I'm happy with how this is turning out.</p>
+    </div>
+
+    <div class="upcomingprojects">
+        <h1>Upcoming Projects</h1>
+        <p>At the moment, when you log a film, you have to describe it (name, year).</p>
+        <p>I plan to connect this application to an API so the user can find the film through a search and already have its details.</p>
+    </div>
 
     {% include "footer.html" %}
 {% endblock content %}
