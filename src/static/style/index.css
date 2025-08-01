@@ -50,4 +50,43 @@
 
 body {
     background-color: #2B2B2B;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 5em;
+
+    div {
+        width: 100%;
+
+        h1 {
+            color: #c44225;
+            text-shadow: 3px 5px 30px rgba(0,0,0,0.75);
+        }
+        p {
+            color: #bbb5aa;
+            font-weight: 400;
+            text-align: justify;
+            margin-bottom: 0.1em;
+        }
+
+    }
+
+    hr {
+        /* margin: 0.3em 0 0.3em 0; */
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #bbb5aa;
+        margin: 1em 0;
+        padding: 0;
+        margin-bottom: 3em;
+    }
+
+
 }

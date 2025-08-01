@@ -2,29 +2,47 @@
 
 {% block head %}
     {{ super() }}
-    {% block title %} Register {% endblock title %}
+    <!-- {% block title %} Register {% endblock title %} -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style/register.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock head %}
 
 {% block content %}
 
-    <!-- {% include "flash.html" %} -->
+     {% include "flash.html" %} 
+     {% include "header.html" %}
 
-    <form action="{{url_for('register')}}" method="post">
-        <label for="nome">Username:</label>
-        <input type="text" placeholder="exemplouser3" name="username">
+    <div class="card">
 
-        <label for="email">Email:</label>
-        <input type="email" placeholder="fulano@exemplo.com" name="email">
+        <div class="card-form">
+            
+            <div class="form">
 
-        <label for="password">Password:</label>
-        <input type="password" placeholder="Password" name="password">
+                <form action="{{url_for('register')}}" method="post">
+                    <input type="text" id="username" autocomplete="off" placeholder=" " name="username">
+                    <label for="name">Username</label>
+
+                    <!-- <label for="email">Email</label>
+                    <input type="email" placeholder="example@gmail.com" name="email">
+
+                    <label for="password">Password</label>
+                    <input type="password" placeholder="Password" name="password">
+                
+                    <button type="submit">Submit</button> -->
+                </form>
+                <p>Have an account? <a href="{{ url_for('login') }}">Sign in</a></p>
+            </div>
+
+        </div>
+
+        <div class="card-image">
+            au au
+        </div>
+
+    </div>
     
-        <button type="submit">Submit</button>
-
-    </form>
-
+    
+     
     {% include "footer.html" %}
 
 {% endblock content %}

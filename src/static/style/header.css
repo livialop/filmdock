@@ -33,11 +33,11 @@ header {
         }
 
         button {
-            background-color: #c44225;
+            background-color: #bbb5aa;
+            color: #2B2B2B;
             border: none;
             border-radius: 0.5em;
-            padding: 0.8em 1em;
-            color:#ece5d7;
+            padding: 0.5em 1em;
             font-weight: 500;
             cursor: pointer;
             transition: background-color 0.1s ease;
@@ -46,7 +46,7 @@ header {
             box-shadow: 3px 5px 10px 0px rgba(0, 0, 0, 0.75);
 
             &:hover {
-                background-color: #ece5d7;
+                background-color: #c44225;
                 color: #2B2B2B;
             }
 
