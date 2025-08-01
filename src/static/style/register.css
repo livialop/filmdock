@@ -1,104 +1,68 @@
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
 .card-form {
-    background-color: blue;
     width: 55%;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .form {
-        height: 50%;
-        width: 60%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-
-        form {
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            width: 90%;
-            max-width: 20em;
-            height: 2.5em;
-
-            input {
-                position: absolute;
-                height: 100%;
-                width: 100%;
-                background: #2B2B2B;
-                padding-left: 1em;
-                margin: 0.5em 0px 1em 0px;
-                border-radius: 0.5em;
-                border: 2px solid #2B2B2B;
-                transition: border-color 0.3s ease-in-out;
-                outline: none;
-            }
-
-            label {
-              position: absolute;
-              background: #2B2B2B;
-              color:#ece5d7;
-              left: 1em;
-              top: 0.75em;
-              cursor: text;
-              transition: top 350ms ease-in, font-size 350ms ease-in;;
-            }
-
-            input:hover {
-              border: 2px solid #c44225;
-            }
-
-            input:focus {
-                border: 2px solid #ccc;
-            }
-            
-            input[type="text"]:focus ~ label, input:not(:placeholder-shown)input:not(:focus) ~ label {
-              top: 0.5em;
-              font-size: 0.75rem;
-              padding: 0 0.125em;
-            }
-
-            button {
-                margin: 1em 0px 0px 0px;
-                background-color: #ece5d7;
-                height: 3.5em;
-                color: #2B2B2B;
-                border: none;
-                border-radius: 0.5em;
-                padding: 0.5em 1em;
-                font-weight: 500;
-                cursor: pointer;
-                transition: background-color 0.1s ease;
-                -webkit-box-shadow: 3px 5px 10px 0px rgba(0, 0, 0, 0.75);
-                -moz-box-shadow: 3px 5px 10px 0px rgba(0, 0, 0, 0.75);
-                box-shadow: 3px 5px 10px 0px rgba(0, 0, 0, 0.75);
-
-                /* &:hover {
-                    background-color: #c44225;
-                    color: #2B2B2B; */
-                /* } */
-            }
-        }
-
-        p {
-            color: #797979;
-            a {
-                text-decoration: none;
-                color:#c44225;
-            }
-        }
-
-    }
-
+    background-color: blue;
 }
 
 .card-image {
-    background-color: white;
     width: 45%;
     height: 100vh;
+    background-color: #ccc;
 }
 
-.card {
-    display: flex;
+.form {
+    width: 90%;
+    max-width: 20em;
+    height: 2.5em;
+    position: relative;
+}
 
+.form__input {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #121212;
+    border: 2px solid #fff;
+    border-radius: 0.5em;
+    outline: none;
+    color: #fff;
+    padding-left: 1em;
+}
+
+label {
+    position: absolute;
+    background: #121212;
+    color: #fff;
+    font-family: sans-serif;
+    left: 1em;
+    top: 0.75em;
+    cursor: text;
+    transition: top 350ms ease-in, font-size 350ms ease-in;
+}
+
+.form__input:hover {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.form__input:focus {
+    border: 2px solid #00ffff;
+}
+
+input[type="text"]:focus ~ label,
+.form__input:not(:placeholder-shown).form__input:not(:focus) ~ label {
+    top: -0.5em;
+    font-size: 0.75rem;
+    padding: 0 0.125em;
+}
+
+input[type="password"]:focus ~ label,
+.form__input:not(:placeholder-shown).form__input:not(:focus) ~ label {
+    top: -0.5em;
+    font-size: 0.75rem;
+    padding: 0 0.125em;
 }

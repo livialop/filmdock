@@ -11,38 +11,57 @@
 
      {% include "flash.html" %} 
      {% include "header.html" %}
-
-    <div class="card">
-
+    
+    <div class="container">
         <div class="card-form">
-            
-            <div class="form">
+            <form action="">
 
-                <form action="{{url_for('register')}}" method="post">
-                    <input type="text" id="username" autocomplete="off" placeholder=" " name="username">
-                    <label for="name">Username</label>
+                <div class="form">
+                    <input
+                        type="text"
+                        id="name"
+                        autocomplete="off"
+                        placeholder=" "
+                        class="form__input"
+                        name="username"
+                    />
+                    <label for="username">Username</label>
+                </div>
 
-                    <!-- <label for="email">Email</label>
-                    <input type="email" placeholder="example@gmail.com" name="email">
+                <div class="form">
+                    <input
+                        type="text"
+                        id="name"
+                        autocomplete="off"
+                        placeholder=" "
+                        class="form__input"
+                        name="email"
+                    />
+                    <label for="email">Email</label>
+                </div>
 
+                <div class="form">
+                    <input
+                        type="password"
+                        id="name"
+                        autocomplete="off"
+                        placeholder=" "
+                        class="form__input"
+                        name="password"
+                    />
                     <label for="password">Password</label>
-                    <input type="password" placeholder="Password" name="password">
-                
-                    <button type="submit">Submit</button> -->
-                </form>
-                <p>Have an account? <a href="{{ url_for('login') }}">Sign in</a></p>
-            </div>
-
+                </div>
+            </form> 
         </div>
 
         <div class="card-image">
-            au au
+            auau
         </div>
 
     </div>
-    
-    
+
      
+         
     {% include "footer.html" %}
 
 {% endblock content %}
