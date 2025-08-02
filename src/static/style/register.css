@@ -6,63 +6,78 @@
 .card-form {
     width: 55%;
     height: 100vh;
-    background-color: blue;
+    background-color: #2b2b2b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        padding: 10em 5em;
+        background-color: #2B2B2B;
+        /* box-shadow: 12px 29px 81px 0px rgba(255, 67, 38, 0.75); */
+        border-radius: 1.5em;
+    }
+
+    .form {
+        width: 40em;
+        max-width: 20em;
+        height: 2.5em;
+        position: relative;
+    }
+
+
+    .form__input {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: #bbb5aa;
+        /* border: 2px solid #fff; */
+        border-radius: 0.5em;
+        outline: none;
+        /* color: #fff; */
+        padding-left: 1em;
+    }
+
+    label {
+        position: absolute;
+        background: #12121200;
+        color: #c44225;
+        font-family: sans-serif;
+        left: 1em;
+        top: 0.75em;
+        cursor: text;
+        transition: top 350ms ease-in, font-size 350ms ease-in;
+    }
+
+    .form__input:hover {
+        border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .form__input:focus {
+        border: 2px solid #00ffff;
+    }
+
+    input[type="text"]:focus ~ label,
+    .form__input:not(:placeholder-shown).form__input:not(:focus) ~ label {
+        top: -0.5em;
+        font-size: 0.75rem;
+        padding: 0 0.125em;
+    }
+
+    input[type="password"]:focus ~ label,
+    .form__input:not(:placeholder-shown).form__input:not(:focus) ~ label {
+        top: -0.5em;
+        font-size: 0.75rem;
+        padding: 0 0.125em;
+    }
+
 }
 
 .card-image {
     width: 45%;
     height: 100vh;
     background-color: #ccc;
-}
-
-.form {
-    width: 90%;
-    max-width: 20em;
-    height: 2.5em;
-    position: relative;
-}
-
-.form__input {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: #121212;
-    border: 2px solid #fff;
-    border-radius: 0.5em;
-    outline: none;
-    color: #fff;
-    padding-left: 1em;
-}
-
-label {
-    position: absolute;
-    background: #121212;
-    color: #fff;
-    font-family: sans-serif;
-    left: 1em;
-    top: 0.75em;
-    cursor: text;
-    transition: top 350ms ease-in, font-size 350ms ease-in;
-}
-
-.form__input:hover {
-    border: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-.form__input:focus {
-    border: 2px solid #00ffff;
-}
-
-input[type="text"]:focus ~ label,
-.form__input:not(:placeholder-shown).form__input:not(:focus) ~ label {
-    top: -0.5em;
-    font-size: 0.75rem;
-    padding: 0 0.125em;
-}
-
-input[type="password"]:focus ~ label,
-.form__input:not(:placeholder-shown).form__input:not(:focus) ~ label {
-    top: -0.5em;
-    font-size: 0.75rem;
-    padding: 0 0.125em;
 }

@@ -8,6 +8,7 @@ header {
     border-bottom: 1px solid #ece5d7;
     margin-bottom: 2em;
     box-shadow: 3px 3px 5px 0px #cec8bc;
+    /* position: relative; */
 
     .title {
         h2 {
