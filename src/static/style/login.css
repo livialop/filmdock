@@ -10,15 +10,52 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    
 
     form {
         display: flex;
         flex-direction: column;
         gap: 1em;
         padding: 10em 5em;
-        background-color: #2B2B2B;
-        /* box-shadow: 12px 29px 81px 0px rgba(255, 67, 38, 0.75); */
+        background-color: #bbb5aa;
+        box-shadow: 12px 29px 81px 0px rgba(0, 0, 0, 0.75);
         border-radius: 1.5em;
+
+        p {
+            color:#2B2B2B;
+            font-weight: 400;
+            a {
+                text-decoration: none; 
+                color: #c44225;
+                font-weight: 500;
+                transition: color 0.2s ease;
+                &:hover {
+                    color: #2B2B2B;
+                }
+            }
+        }
+
+        button {
+            background-color: #c44225;
+            color: #2B2B2B;
+            border: none;
+            border-radius: 0.5em;
+            padding: 0.5em 1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.1s ease;
+            -webkit-box-shadow: 3px 5px 10px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 3px 5px 10px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: 3px 5px 10px 0px rgba(0, 0, 0, 0.75);
+
+            &:hover {
+                background-color: #bbb5aa;
+                color: #2B2B2B;
+            }
+
+        }
+
     }
 
     .form {
@@ -26,6 +63,8 @@
         max-width: 20em;
         height: 2.5em;
         position: relative;
+        /* box-shadow: 3px 6px 10px 0px rgba(0, 0, 0, 0.75); */
+        border-radius: 0.5em;
     }
 
 
@@ -39,25 +78,27 @@
         outline: none;
         /* color: #fff; */
         padding-left: 1em;
+        transition: ease-in 0.2s;
     }
 
     label {
         position: absolute;
-        background: #12121200;
+        background: #bbb5aa;
         color: #c44225;
         font-family: sans-serif;
         left: 1em;
         top: 0.75em;
         cursor: text;
+        font-weight:calc(1250*1/2);
         transition: top 350ms ease-in, font-size 350ms ease-in;
     }
 
     .form__input:hover {
-        border: 2px solid rgba(255, 255, 255, 0.5);
+        transform: scale(1.01);
     }
 
     .form__input:focus {
-        border: 2px solid #00ffff;
+        border: 2px solid rgba(10, 10, 10, 0.5);
     }
 
     input[type="text"]:focus ~ label,
@@ -79,5 +120,16 @@
 .card-image {
     width: 45%;
     height: 100vh;
-    background-color: #ccc;
+    background-color: #2B2B2B;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        object-position: left;
+        filter: blur(0.2em);
+    }
+
+    /* box-shadow: 12px 29px 81px 0px rgba(248, 0, 0, 0.75); */
+
 }

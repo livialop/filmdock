@@ -2,8 +2,8 @@
 
 {% block head %}
     {{ super() }}
-    <!-- {% block title %} Register {% endblock title %} -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/login.css') }}">
+    <!-- {% block title %} Login {% endblock title %} -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/register.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock head %}
 
@@ -14,7 +14,7 @@
     
     <div class="container">
         <div class="card-form">
-            <form action="" method="post">
+            <form method="post" action="{{ url_for('register') }}">
 
                 <div class="form">
                     <input
@@ -39,11 +39,14 @@
                     />
                     <label for="password">Password</label>
                 </div>
+
+                <button type="submit">Submit</button>
+                <p>Already have an account? <a href="{{ url_for('login') }}">Sign in.</a></p>
             </form> 
         </div>
 
         <div class="card-image">
-            auau
+            <img src="{{ url_for('static', filename='assets/inthemoodforloveposter.png') }}" alt="In The Mood For Love - Poster" />
         </div>
 
     </div>

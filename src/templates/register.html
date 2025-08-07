@@ -14,7 +14,7 @@
     
     <div class="container">
         <div class="card-form">
-            <form action="">
+            <form method="post" action="{{ url_for('register') }}">
 
                 <div class="form">
                     <input
@@ -51,11 +51,14 @@
                     />
                     <label for="password">Password</label>
                 </div>
+
+                <button type="submit">Submit</button>
+                <p>Already have an account? <a href="{{ url_for('login') }}">Sign in.</a></p>
             </form> 
         </div>
 
         <div class="card-image">
-            auau
+            <img src="{{ url_for('static', filename='assets/alienposter.jpg') }}" alt="Alien: Romulus - Poster" />
         </div>
 
     </div>
