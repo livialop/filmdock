@@ -66,11 +66,11 @@ def register():
 
             close_connection()  # Fechando a conexão com o banco de dados
 
-            return redirect(url_for('index'))
+            return redirect(url_for('films'))  # Redirecionando para a página de filmes
         
         else:
             flash('Você já tem cadastro, faça login', category='error')
-            return redirect(url_for('index'))
+            return redirect(url_for('login'))  # Redirecionando para a página de login
     
     # Se o método for GET
     return render_template('register.html')
@@ -108,7 +108,7 @@ def login():
                 login_user(user)
 
                 flash('Você está logado!', category='success')
-                return redirect(url_for('index')) # Mudar a rota posteriormente
+                return redirect(url_for('films')) 
             
         close_connection()  # Fechando a conexão com o banco de dados
 
@@ -118,10 +118,33 @@ def login():
 @app.route('/films', methods=['GET', 'POST'])
 @login_required # Apenas usuários logados podem acessar essa rota
 def films():
-    '''Páginas para o usuário ter a opção de logar um filme e visualizar aqueles que já foram logados.'''
+    '''Páginas para o usuário ter a opção de logar um filme e visualizar aqueles que já foram logados.
+        Estrutura pensada: 
+        -> Pegar título do filme, ano.
+        -> Se o usuário clicar, isso expande para a tela onde ele poderá ver sua review e avaliação.
+    '''
+    conn = get_connection()
+    sql_get_film_data = "SELECT title, year, rating, review FROM user_films WHERE user_email = ?"
+    # dict: {titulo: (ano, avaliação, review)}
 
-    # Se o método for GET
-    return render_template('films.html')
+    try:
+        films = conn.execute(sql_get_film_data, (current_user.id,)).fetchall() 
+        films_data = {}
+        for film in films:
+            films_data[film[0]] = {
+                'year': film[1],
+                'rating': film[2],
+                'review': film[3]
+            }
+        print(films_data) # Checando o que está sendo retornado, comentar isso depois.
+        close_connection()  # Fechando a conexão com o banco de dados
+
+    except sqlite3.Error as e:
+        print(e)
+        flash(f'Erro ao acessar o banco de dados: {e}', category='error')
+        return redirect(url_for('index'))
+
+    return render_template('films.html', films_name=list(films_data.keys()), films_data=films_data)
 
 
 @app.route('/add_films', methods=['GET','POST'])

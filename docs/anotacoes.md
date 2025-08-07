@@ -10,3 +10,4 @@
 * Falta corrigir o css da página de cadastro
 * Implementar API com https://www.omdbapi.com/
 * Mais 3 págs.: Página de adicionar e remover filmes, página de visualizar/editar informações do usuário e página de login
+* Fazer páginas de erros personalizadas: 401, 404, etc.

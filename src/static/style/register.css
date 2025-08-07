@@ -130,6 +130,6 @@
         filter: blur(0.3em);
     }
 
-    box-shadow: 12px 29px 81px 0px rgba(248, 0, 0, 0.75);
+    /* box-shadow: 12px 29px 81px 0px rgba(248, 0, 0, 0.75); */
 
 }

@@ -3,18 +3,28 @@
 {% block head %}
     {{ super() }}
     <!-- {% block title %} Login {% endblock title %} -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/register.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/login.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock head %}
 
 {% block content %}
 
-     {% include "flash.html" %} 
-     {% include "header.html" %}
+      
+    {% include "header.html" %}
     
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
     <div class="container">
         <div class="card-form">
-            <form method="post" action="{{ url_for('register') }}">
+            <form method="post" action="{{ url_for('login') }}">
 
                 <div class="form">
                     <input
@@ -41,7 +51,7 @@
                 </div>
 
                 <button type="submit">Submit</button>
-                <p>Already have an account? <a href="{{ url_for('login') }}">Sign in.</a></p>
+                <p>Doesn't have an account? <a href="{{ url_for('login') }}">Sign up.</a></p>
             </form> 
         </div>
 
