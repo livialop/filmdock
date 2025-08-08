@@ -2,7 +2,7 @@
 
 {% block head %}
     {{ super() }}
-    <!-- {% block title %} Films {% endblock title %} -->
+    <!-- {% block title %} Filmdock {% endblock title %} -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style/films.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock head %}
@@ -44,6 +44,8 @@
             <p class="no-films">You haven't logged any films yet.</p>
         {% endif %}
     </div>
+
+    <a href="{{ url_for('logout')}}"><button class="logout">Logout</button></a>
 
     {% include "footer.html" %}
 

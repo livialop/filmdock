@@ -190,6 +190,14 @@ def add_films():
     return render_template('add_films.html')
 
 
+@app.route('/logout')
+@login_required 
+def logout():
+    '''Rota para deslogar o usuário'''
+    logout_user()
+    flash('Você foi deslogado com sucesso!', category='success')
+    return redirect(url_for('index'))
+
 # Rotas de erro
 
 @app.errorhandler(404)

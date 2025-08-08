@@ -141,3 +141,28 @@ body {
 .film-card.expanded .review {
     -webkit-line-clamp: unset; /* mostra tudo */
 }
+
+a {
+    .logout {
+        display: inline-block;
+        padding: 0.3em 0.7em;
+        margin-bottom: 2em;
+        margin-top: 4em;
+        /* position: relative; */
+        left: 20em;
+        background-color: #c44225;
+        color: #bbb5aa;
+        border: none;
+        border-radius: 0.5em;
+        padding: 0.5em 1em;
+        font-weight: 500;
+        cursor: pointer;
+        box-shadow: 3px 5px 10px 0px rgba(0, 0, 0, 0.75);
+        transition: background-color 0.5s ease;
+
+        &:hover {
+            background-color: #ff4757;
+            color: #bbb5aa;
+        }
+    }
+}
