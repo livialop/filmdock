@@ -15,7 +15,7 @@ Documento criado apenas para manter controle das entregas semanais.
 * Logout funcional
 * Templates com extends/includes para base e navbar | <p style='color: green; display: inline;'>OK</p>
 ## Semana 3 (18/07–24/07)
-* Implementar CRUD do recurso escolhido:
+* Implementar CRUD do recurso escolhido: <p style='color: green; display: inline;'>OK</p>
     * Criar
     * Listar
     * Editar
@@ -27,7 +27,7 @@ Documento criado apenas para manter controle das entregas semanais.
     * Uso de redirect e url_for  <p style='color: green; display: inline;'>OK</p>
     * Uso de make_response (exemplo: cookies ou headers customizados)  <p style='color: green; display: inline;'>OK</p>
 * Tratamento de erros:
-    * Páginas personalizadas para 404 e 500
+    * Páginas personalizadas para 404 e 500 <p style='color: green; display: inline;'>OK</p>
 ## Semana 5 (01/08–13/08)
 * Testes manuais completos  <p style='color: green; display: inline;'>OK</p>
 * Estilização básica com CSS ou Bootstrap  <p style='color: green; display: inline;'>OK</p>
