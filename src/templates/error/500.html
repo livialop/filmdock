@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block head %}
+    {{ super() }}
+    <!-- {% block title %} Filmdock {% endblock title %} -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/error.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock head %}
+
+{% block content %}
+
+    {% include "header.html" %}
+    
+    <div class="body">
+    
+        <div class="error">
+
+            <h1>500</h1>
+            <h3>An error has occurred! :(</h3>
+            <p>Please go back and try again.</p>
+
+            <button><a href="{{url_for('index')}}">Return to Homepage</a></button>
+
+        </div>
+
+    </div>
+
+    {% include "footer.html" %}
+
+{% endblock content %}

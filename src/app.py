@@ -89,7 +89,7 @@ def login():
 
         if not result:
             flash('Usuário não logado', category='error')
-            return redirect(url_for('index'))
+            return redirect(url_for('register'))
         
         elif result:
             sql_get_password = "SELECT * FROM users WHERE email = ?"
@@ -188,3 +188,26 @@ def add_films():
 
     # Se o método for GET
     return render_template('add_films.html')
+
+
+# Rotas de erro
+
+@app.errorhandler(404)
+def page_not_found(error):
+    '''Rota personalizada para o erro 404 '''
+    return render_template('error/404.html'), str(error)
+
+@app.errorhandler(500)
+def internal_server_error(error):
+    '''Rota personalizada para o erro 500'''
+
+    return render_template('error/500.html'), str(error)
+
+@app.errorhandler(Exception)
+def handle_generic_exception(error):
+    response = {
+        "error": "Unexpected Error",
+        "message": "An unknown error has occurred. Please try again later.",
+        "status": 500
+    }
+    return render_template('error/generic.html', response), str(error)

@@ -23,17 +23,17 @@ Documento criado apenas para manter controle das entregas semanais.
 * Restrição de acesso: cada usuário só pode ver/editar/excluir seus dados
 ## Semana 4 (25/07–31/07)
 * Uso refinado de Flask:
-    * Uso de request para formulários/dados
-    * Uso de redirect e url_for
-    * Uso de make_response (exemplo: cookies ou headers customizados)
+    * Uso de request para formulários/dados  <p style='color: green; display: inline;'>OK</p>
+    * Uso de redirect e url_for  <p style='color: green; display: inline;'>OK</p>
+    * Uso de make_response (exemplo: cookies ou headers customizados)  <p style='color: green; display: inline;'>OK</p>
 * Tratamento de erros:
     * Páginas personalizadas para 404 e 500
 ## Semana 5 (01/08–13/08)
-* Testes manuais completos
-* Estilização básica com CSS ou Bootstrap
+* Testes manuais completos  <p style='color: green; display: inline;'>OK</p>
+* Estilização básica com CSS ou Bootstrap  <p style='color: green; display: inline;'>OK</p>
 * Ajustes finais no código
 * README bem elaborado:
-    * Instruções para rodar localmente
-    * Dependências
-    * Screenshots ou gifs opcionais
+    * Instruções para rodar localmente  <p style='color: green; display: inline;'>OK</p>
+    * Dependências  <p style='color: green; display: inline;'>OK</p>
+    * Screenshots ou gifs opcionais 
 * Revisão final e entrega no GitHub
