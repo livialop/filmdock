@@ -124,7 +124,7 @@ def films():
         -> Se o usuário clicar, isso expande para a tela onde ele poderá ver sua review e avaliação.
     '''
     conn = get_connection()
-    sql_get_film_data = "SELECT title, year, rating, review FROM user_films WHERE user_email = ?"
+    sql_get_film_data = "SELECT title, year, rating, review FROM film_user WHERE user_email = ?"
     # dict: {titulo: (ano, avaliação, review)}
 
     try:
@@ -136,7 +136,7 @@ def films():
                 'rating': film[2],
                 'review': film[3]
             }
-        print(films_data) # Checando o que está sendo retornado, comentar isso depois.
+        # print(films_data) # Checando o que está sendo retornado, comentar isso depois.
         close_connection()  # Fechando a conexão com o banco de dados
 
     except sqlite3.Error as e:
@@ -171,7 +171,7 @@ def add_films():
         
         try:
             conn = get_connection()
-            sql_insert_film = "INSERT INTO user_films (user_email, title, year, rating, review) VALUES (?, ?, ?, ?, ?)"
+            sql_insert_film = "INSERT INTO film_user (user_email, title, year, rating, review) VALUES (?, ?, ?, ?, ?)"
 
             conn.execute(sql_insert_film, (current_user.id, film_title, film_year, film_rating, film_review))
             conn.commit()
@@ -200,7 +200,6 @@ def page_not_found(error):
 @app.errorhandler(500)
 def internal_server_error(error):
     '''Rota personalizada para o erro 500'''
-
     return render_template('error/500.html'), str(error)
 
 @app.errorhandler(Exception)

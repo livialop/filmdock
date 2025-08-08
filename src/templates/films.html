@@ -8,11 +8,44 @@
 {% endblock head %}
 
 {% block content %}
-
     {% include "header.html" %}
-    
-    <button><a href="{{ url_for('add_films') }}">AAAAAAAAAAA</a></button>
+
+    <div class="films-container">
+        <div class="container-header">
+            <h1>Your Logged Films</h1>
+            <a href="{{ url_for('add_films') }}"><button>+ Add Film</button></a>
+        </div>
+        
+        {% if films_name %}
+            <div class="films-grid">
+                {% for film in films_name %}
+                    <div class="film-card" onclick="toggleExpand(this)">
+                        <div class="film-header">
+                            <div class="film-title">
+                                <h2>{{ film }}</h2>
+                                <span class="year">{{ films_data[film]['year'] }}</span>
+                            </div>
+                            <i class="fa fa-chevron-down expand-icon"></i>
+                        </div>
+                        <div class="rating">
+                            {% for i in range(1, 6) %}
+                                {% if i <= films_data[film]['rating'] %}
+                                    <i class="fa fa-star"></i>
+                                {% else %}
+                                    <i class="fa fa-star-o"></i>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <p class="review">{{ films_data[film]['review'] }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-films">You haven't logged any films yet.</p>
+        {% endif %}
+    </div>
 
     {% include "footer.html" %}
 
+    <script src="{{ url_for('static', filename='js/films.js') }}"></script>
 {% endblock content %}

@@ -1,0 +1,143 @@
+body {
+    background-color: #2B2B2B;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.films-container {
+    width: 70%;
+    margin-top: 3em;
+
+    .container-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button {
+            display: inline-block;
+            padding: 0.3em 0.7em;
+            margin-bottom: 2em;
+            position: relative;
+            left: 20em;
+            background-color: #c44225;
+            color: #bbb5aa;
+            border: none;
+            border-radius: 0.5em;
+            padding: 0.5em 1em;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 3px 5px 10px 0px rgba(0, 0, 0, 0.75);
+            transition: background-color 0.5s ease;
+
+            &:hover {
+                background-color: #2B2B2B;
+                color: #bbb5aa;
+            }
+
+        }
+    
+    }
+
+}
+
+.films-container h1 {
+    color: #c44225;
+    text-shadow: 3px 5px 30px rgba(0,0,0,0.75);
+    margin-bottom: 1em;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    left: 1.4em;
+}
+
+.no-films {
+    color: #bbb5aa;
+    text-align: center;
+    margin-top: 2em;
+    font-size: 1.2em;
+}
+
+.films-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2em;
+}
+
+.film-card {
+    background-color: #1f1f1f;
+    border-radius: 1em;
+    padding: 1.5em;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    transition: transform 0.2s ease, max-height 0.4s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+    max-height: 180px; /* altura inicial (review cortada) */
+}
+
+.film-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.6);
+}
+
+.film-card.expanded {
+    max-height: 500px; /* altura expandida */
+}
+
+.film-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5em;
+}
+
+.film-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.expand-icon {
+    color: #bbb5aa;
+    font-size: 1em;
+    transition: transform 0.3s ease;
+}
+
+.film-card.expanded .expand-icon {
+    transform: rotate(180deg);
+}
+
+.film-header h2 {
+    color: #c44225;
+    font-size: 1.4em;
+    margin: 0;
+}
+
+.film-header .year {
+    color: #bbb5aa;
+    font-size: 0.9em;
+}
+
+.rating {
+    margin-bottom: 1em;
+}
+
+.rating i {
+    color: gold;
+    margin-right: 2px;
+}
+
+.review {
+    color: #bbb5aa;
+    font-size: 0.95em;
+    line-height: 1.4em;
+    text-align: justify;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* mostra só 4 linhas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: -webkit-line-clamp 0.4s ease;
+}
+
+.film-card.expanded .review {
+    -webkit-line-clamp: unset; /* mostra tudo */
+}
