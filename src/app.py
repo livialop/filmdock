@@ -217,4 +217,4 @@ def handle_generic_exception(error):
         "message": "An unknown error has occurred. Please try again later.",
         "status": 500
     }
-    return render_template('error/generic.html', response), str(error)
+    return render_template('error/generic.html', response=response), str(error)
