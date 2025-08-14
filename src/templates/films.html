@@ -9,6 +9,7 @@
 
 {% block content %}
     {% include "header.html" %}
+    {% include "flash.html" %}
 
     <div class="films-container">
         <div class="container-header">
@@ -45,8 +46,11 @@
         {% endif %}
     </div>
 
-    <a href="{{ url_for('logout')}}"><button class="logout">Logout</button></a>
-
+    <div class="buttons">
+        <a href="{{ url_for('logout')}}"><button class="logout">Logout</button></a>
+        <a href="{{ url_for('edit_profile')}}"><button class="logout">Edit Profile</button></a>
+    </div>
+    
     {% include "footer.html" %}
 
     <script src="{{ url_for('static', filename='js/films.js') }}"></script>

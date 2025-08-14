@@ -198,6 +198,50 @@ def logout():
     flash('Você foi deslogado com sucesso!', category='success')
     return redirect(url_for('index'))
 
+@app.route('/edit_profile', methods=['GET', 'POST'])
+@login_required
+def edit_profile():
+    '''Rota para o usuário editar seus dados e deletar filmes que deseja.'''
+    conn = get_connection()
+
+    sql_get_reviews = 'SELECT id, title, year, rating, review FROM film_user WHERE user_email = ?'
+
+    reviews = conn.execute(sql_get_reviews, (current_user.id,)).fetchall()
+
+    if request.method == 'POST':
+        if "delete_review" in request.form:
+            review_id = request.form.get('delete_review')  
+            
+            sql_delete = 'DELETE FROM film_user WHERE id = ? AND user_email = ?'
+            conn.execute(sql_delete, (review_id, current_user.id))
+            conn.commit()
+            flash('Review deleted!', category='success')
+            return redirect(url_for('edit_profile')) 
+
+        else:
+            username = request.form.get('username')
+            email = request.form.get('email')
+            password = request.form.get('password')
+
+            sql_update = 'UPDATE users SET username = ?, email = ?, password = ? WHERE email = ?'
+
+            if not password:  
+                sql_update = "UPDATE users SET username = ?, email = ? WHERE email = ?"
+                conn.execute(sql_update, (username, email, current_user.id))
+            else: 
+                password_hash = generate_password_hash(password)
+                sql_update = "UPDATE users SET username = ?, email = ?, password_hash = ? WHERE email = ?"
+                conn.execute(sql_update, (username, email, password_hash, current_user.id))
+
+            conn.commit()
+            flash('Profile Updated!', category='success')
+            return redirect(url_for('edit_profile'))
+    
+    close_connection()
+
+    # Se o método for GET
+    return render_template('edit_profile.html', reviews=reviews)
+
 # Rotas de erro
 
 @app.errorhandler(404)
