@@ -12,15 +12,15 @@ Documento criado apenas para manter controle das entregas semanais.
     * Página de login | <p style='color: green; display: inline;'>OK</p>
     * Senha com hash seguro | <p style='color: green; display: inline;'>OK</p>
     * Sessão ou Flask-Login para manter usuário autenticado | <p style='color: green; display: inline;'>OK</p>
-* Logout funcional
+* Logout funcional <p style='color: green; display: inline;'>OK</p>
 * Templates com extends/includes para base e navbar | <p style='color: green; display: inline;'>OK</p>
 ## Semana 3 (18/07–24/07)
 * Implementar CRUD do recurso escolhido: <p style='color: green; display: inline;'>OK</p>
-    * Criar
-    * Listar
-    * Editar
-    * Excluir
-* Restrição de acesso: cada usuário só pode ver/editar/excluir seus dados
+    * Criar <p style='color: green; display: inline;'>OK</p>
+    * Listar <p style='color: green; display: inline;'>OK</p>
+    * Editar <p style='color: green; display: inline;'>OK</p>
+    * Excluir <p style='color: green; display: inline;'>OK</p>
+* Restrição de acesso: cada usuário só pode ver/editar/excluir seus dados <p style='color: green; display: inline;'>OK</p>
 ## Semana 4 (25/07–31/07)
 * Uso refinado de Flask:
     * Uso de request para formulários/dados  <p style='color: green; display: inline;'>OK</p>
@@ -36,4 +36,4 @@ Documento criado apenas para manter controle das entregas semanais.
     * Instruções para rodar localmente  <p style='color: green; display: inline;'>OK</p>
     * Dependências  <p style='color: green; display: inline;'>OK</p>
     * Screenshots ou gifs opcionais 
-* Revisão final e entrega no GitHub
+* Revisão final e entrega no GitHub <p style='color: green; display: inline;'>OK</p>

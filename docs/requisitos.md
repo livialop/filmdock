@@ -28,7 +28,6 @@
 ## 4. Banco de Dados
 
 - **RF11**: Usar SQLite para armazenar dados de usuários, filmes e reviews.
-<!-- - **RF12**: Tabelas adequadas para usuários (id, nome, e-mail, senha_hash, foto, etc.) e filmes (id, título, data_assistida, pontuação, review, user_id, etc.). -->
 
 
 ## 5. Templates e navegação
